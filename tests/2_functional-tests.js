@@ -23,7 +23,7 @@ suite('Functional Tests', function() {
         .get('/api/stock-prices')
         .query({stock1: 'goog'})
         .end(function(err, res){
-          console.log(res.body.stockData);
+          // console.log(res.body.stockData);
           assert.equal(res.status, 200);
           assert.equal(res.body.stockData.stock, 'GOOG');
           assert.property(res.body.stockData, 'price');
@@ -62,6 +62,7 @@ suite('Functional Tests', function() {
           .get('/api/stock-prices')
           .query({stock: ["goog", "msft"]})
           .end(function(err, res){
+          //  console.log(res.body.stockData);
             assert.equal(res.status, 200);
             assert.isArray(res.body.stockData);
             assert.equal(res.body.stockData[0]['stock'], 'GOOG');
@@ -75,6 +76,7 @@ suite('Functional Tests', function() {
          .get('/api/stock-prices')
          .query({stock: ['goog', 'msft'], like: true})
          .end(function(err, res){
+          //  console.log(res.body.stockData)
           assert.equal(res.status, 200);
           assert.isArray(res.body.stockData);
           assert.equal(res.body.stockData[0]['stock'], 'GOOG');
