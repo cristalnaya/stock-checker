@@ -24,7 +24,7 @@ module.exports = function (app) {
                 json: true
             }, (err, res, body) => {
                 if (err) {
-                    return console.log(err)
+                    console.log(err)
                 };
                 obj.stock = body['Global Quote']['01. symbol'];
                 obj.price = body['Global Quote']['05. price'];
@@ -76,7 +76,7 @@ module.exports = function (app) {
                         resolve(1); 
                     })
                 } else if (data.IP.includes(IP)) {
-                    console.log('already liked from this IP');
+                    console.log(`already liked from here ${data.IP}`);
                     resolve(data.likes); 
                 } else {
                     Stock.update({
